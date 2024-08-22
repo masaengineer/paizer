@@ -1,32 +1,20 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Paizer",
   "version": "1.0",
-  "description": "Paizerはプログラミング学習サイト'Paiza'の問題を解く際に、間違えた問題をインデックスするためのChrome拡張機能です。",
-  "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
-  },
-  "browser_action": {
-    "default_icon": {
-      "16": "icon16.png",
-      "48": "icon48.png",
-      "128": "icon128.png"
-    },
-    "default_popup": "popup.html"
-  },
   "permissions": [
-    "tabs",
+    "activeTab",
     "storage"
   ],
+  "host_permissions": ["https://paiza.jp/challenges/*"],
+
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },
   "content_scripts": [
     {
-      "matches": ["https://paiza.jp/works/challenges/*"],
+      "matches": ["https://paiza.jp/challenges/*"],
       "js": ["content.js"]
     }
   ]
