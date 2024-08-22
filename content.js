@@ -1,3 +1,5 @@
+console.log('Content script is running');
+
 function addButton() {
   const button = document.createElement('button');
   button.textContent = 'Save Data';
