@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paiza問題トラッカー</title>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-3">
+    <h4>Paiza問題トラッカー</h4>
+    <div class="form-group">
+      <label for="sortSelect">並べ替え:</label>
+      <select id="sortSelect" class="form-control">
+        <option value="wrongCount">間違えた回数が多い順</option>
+        <option value="lastAnswered">最後に回答した日付が古い順</option>
+      </select>
+    </div>
+    <div id="recordsList"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,21 +1,33 @@
 {
   "manifest_version": 2,
-  "name": "Paizer",
-  "version": "1.0.1",
+  "name": "Paiza問題トラッカー",
+  "version": "1.0",
+  "description": "Paizaの問題を追跡し、復習を支援する拡張機能",
   "permissions": [
-    "activeTab",
-    "storage"
+    "storage",
+    "https://paiza.jp/*"
   ],
-  "host_permissions": ["https://paiza.jp/challenges/*"],
-
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },
   "content_scripts": [
     {
-      "matches": ["https://paiza.jp/challenges/*"],
+      "matches": ["https://paiza.jp/*"],
       "js": ["content.js"]
     }
-  ]
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
 }
