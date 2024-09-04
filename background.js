@@ -1,4 +1,6 @@
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+console.log('Background script loaded');
+
+  chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "saveRecord") {
     saveRecord(request.record);
   }

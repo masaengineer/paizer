@@ -1,17 +1,31 @@
+console.log('Content script loaded');
+
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM loaded');
+  addButtons();
+});
+
+
 function addButtons() {
-  const buttonContainer = document.createElement('div');
-  buttonContainer.className = 'paiza-tracker-buttons';
+  try {
+    console.log('Adding buttons');
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = 'paiza-tracker-buttons';
 
-  const wrongButton = createButton('間違えた', 'btn-danger', recordWrong);
-  const correctButton = createButton('正解した', 'btn-success', recordCorrect);
+    const wrongButton = createButton('間違えた', 'btn-danger', recordWrong);
+    const correctButton = createButton('正解した', 'btn-success', recordCorrect);
 
-  buttonContainer.appendChild(wrongButton);
-  buttonContainer.appendChild(correctButton);
+    buttonContainer.appendChild(wrongButton);
+    buttonContainer.appendChild(correctButton);
 
-  // ボタンを配置する適切な場所を特定し、追加する
-  const targetElement = document.querySelector('.problem-content');
-  if (targetElement) {
-    targetElement.appendChild(buttonContainer);
+    // ボタンを配置する適切な場所を特定し、追加する
+    const targetElement = document.querySelector('.d-challenges-ready__box__section-txt3');
+    if (targetElement) {
+      targetElement.appendChild(buttonContainer);
+      console.log('Buttons added');
+    }
+  } catch (error) {
+    console.error('Error in addButtons:', error);
   }
 }
 
@@ -39,10 +53,8 @@ function saveRecord(isWrong) {
     date: new Date().toISOString(),
     isWrong: isWrong,
     title: problemTitle,
-    url: problemUrl
+    url: problemUrl,
   };
 
-  chrome.runtime.sendMessage({action: "saveRecord", record: record});
+  chrome.runtime.sendMessage({ action: 'saveRecord', record: record });
 }
-
-addButtons();
