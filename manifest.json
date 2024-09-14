@@ -1,35 +1,43 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Paiza問題トラッカー",
   "version": "1.0",
   "description": "Paizaの問題を追跡し、復習を支援する拡張機能",
   "permissions": [
     "storage",
-    "https://paiza.jp/*",
     "activeTab"
   ],
-
+  "host_permissions": [
+    "https://paiza.jp/*"
+  ],
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": ["https://paiza.jp/*"],
+      "matches": ["https://paiza.jp/works/challenges/*"],
       "js": ["content.js"]
     }
   ],
-  "browser_action": {
+  "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "icons/paizer-favicon.png",
-      "48": "icons/paizer-favicon.png",
-      "128": "icons/paizer-favicon.png"
+      "16": "icons/favicon.svg",
+      "32": "icons/favicon.svg",
+      "48": "icons/favicon.svg",
+      "128": "icons/favicon.svg"
     }
   },
   "icons": {
-    "16": "icons/paizer-favicon.png",
-    "48": "icons/paizer-favicon.png",
-    "128": "icons/paizer-favicon.png"
-  }
+    "16": "icons/favicon.svg",
+    "32": "icons/favicon.svg",
+    "48": "icons/favicon.svg",
+    "128": "icons/favicon.svg"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["problem-list.html", "problem-list.js"],
+      "matches": ["https://paiza.jp/*"]
+    }
+  ]
 }

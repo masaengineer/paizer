@@ -1,23 +1,60 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paiza問題トラッカー</title>
-  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    select, button {
+      margin-bottom: 10px;
+    }
+    .record-item {
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+    }
+    .reset-button {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 12px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    #listViewButton {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <div class="container mt-3">
-    <h4>Paiza問題トラッカー</h4>
-    <div class="form-group">
-      <label for="sortSelect">並べ替え:</label>
-      <select id="sortSelect" class="form-control">
-        <option value="wrongCount">間違えた回数が多い順</option>
-        <option value="lastAnswered">最後に回答した日付が古い順</option>
-      </select>
-    </div>
-    <div id="recordsList"></div>
-  </div>
+  <h1>問題記録</h1>
+
+  <select id="sortSelect">
+    <option value="wrongCount">間違えた回数が多い順</option>
+    <option value="lastAttempt">最後に回答した日付順</option>
+  </select>
+
+  <button id="listViewButton">一覧表示</button>
+
+  <div id="recordsList"></div>
+
   <script src="popup.js"></script>
 </body>
 </html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Paiza問題一覧</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <h1>Paiza問題一覧</h1>
+  <table id="problemTable">
+    <thead>
+      <tr>
+        <th>タイトル</th>
+        <th>間違えた回数</th>
+        <th>正解した回数</th>
+        <th>最後の挑戦</th>
+        <th>リンク</th>
+      </tr>
+    </thead>
+    <tbody id="problemList"></tbody>
+  </table>
+  <script src="problem-list.js"></script>
+</body>
+</html>
